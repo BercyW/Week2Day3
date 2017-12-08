@@ -3,6 +3,7 @@ package security.bercy.com.week2day3;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -26,7 +27,7 @@ public class AnimalActivity extends AppCompatActivity {
         List<Animal> animalList = databaseOpenHelper.getAnimal(type);
         Log.d("", "onCreate: "+animalList);
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
+        GridLayoutManager layoutManager = new GridLayoutManager(this,4);
         recyclerView.setLayoutManager(layoutManager);
         AnimalAdapter animalAdapter = new AnimalAdapter(animalList);
         recyclerView.setAdapter(animalAdapter);
